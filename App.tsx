@@ -1,37 +1,46 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
 import Home from './src/screens/Home';
 import Profile from './src/screens/Profile';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
 import About from './src/screens/About';
 const Stack = createNativeStackNavigator();
 function MyStack() {
   return (
-    <Stack.Navigator initialRouteName='Home'>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Profile" component={Profile} />
+    <Stack.Navigator 
+    initialRouteName="Home"
+    screenOptions={{
+      headerStyle:{backgroundColor: 'yellow'},
+    }}
+    >
+      <Stack.Screen
+       name="Home"
+        component={Home} 
+        options={{ headerShown: false }}
+
+        />
+      <Stack.Screen name="Profile" component={Profile} 
+        options={{ headerStyle: {backgroundColor: 'tomato'}, headerTintColor: 'white', headerBackTitle:"Back"}}
+      
+      />
       <Stack.Screen name="About" component={About} />
     </Stack.Navigator>
-
   );
 }
 
 const App = () => {
   return (
     <NavigationContainer>
-      <MyStack/>
+      <MyStack />
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 
-const styles = StyleSheet.create({})
-
-
-
+const styles = StyleSheet.create({});
 
 // import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native'
 // import React, { useState } from 'react'
@@ -94,34 +103,6 @@ const styles = StyleSheet.create({})
 
 //   }
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // import { FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 // // import React from 'react';
@@ -248,8 +229,6 @@ const styles = StyleSheet.create({})
 // //   },
 // // ];
 
-
-
 // // const App = () => {
 // //   return (
 
@@ -268,9 +247,9 @@ const styles = StyleSheet.create({})
 // //     // columnWrapperStyle={{justifyContent: 'center', gap:10}}
 // //     ItemSeparatorComponent={() => <View style={{height:10}} />}
 // //     />
-// //     // <ScrollView 
-// //     //   contentContainerStyle={{ gap: 10 }} 
-// //     //   horizontal={true} 
+// //     // <ScrollView
+// //     //   contentContainerStyle={{ gap: 10 }}
+// //     //   horizontal={true}
 // //     //   showsHorizontalScrollIndicator={false}
 // //     //   style={styles.scrollView}
 // //     // >
@@ -310,7 +289,6 @@ const styles = StyleSheet.create({})
 // //     height: 180,
 // //     borderRadius: 20,
 // //     alignItems: 'center',
- 
 
 // //   },
 // //   box2: {

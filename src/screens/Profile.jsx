@@ -1,12 +1,19 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 
 const Profile = () => {
+  const route = useRoute()
   const navigation = useNavigation()
+ 
+  const {id, name } = route.params
+  console.log(id, name)
   return (
     <View>
-    <Text style={{justifyContent:'center', alignItems:'center'  , fontSize:24, fontWeight:'bold', marginTop:80}}>Profile</Text>
+    <Text style={{justifyContent:'center', alignItems:'center'  , fontSize:24, fontWeight:'bold'}}>Profile</Text>
+
+    <Text style={{justifyContent:'center', alignItems:'center'  , fontSize:24, fontWeight:'bold'}}>ID: {id}</Text>
+    <Text style={{justifyContent:'center', alignItems:'center'  , fontSize:24, fontWeight:'bold'}}>Name: {name}</Text>
         <Button title="Go to About" onPress={() => navigation.navigate('About')} />
     
   </View>
