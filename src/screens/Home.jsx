@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <View style={{width:"100%", height:"100%", justifyContent:'center', alignItems:'center'  }}>
     <Text style={{ fontSize:24, fontWeight:'bold', marginTop:80}}>Home</Text>
-    <Button title="Go to Profile" onPress={() => navigation.navigate('Profile',{id:1, name: "John Doe"})} />
+    <Button title="Go to Profile" onPress={() => navigation.navigate('Profile')} />
   </View>
   )
 }

@@ -1,12 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-
+import Icon from 'react-native-vector-icons/AntDesign';
 import Home from './src/screens/Home';
 import Profile from './src/screens/Profile';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import About from './src/screens/About';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
 function MyStack() {
   return (
     <Stack.Navigator 
@@ -30,10 +33,60 @@ function MyStack() {
   );
 }
 
+function TabNavigator() {
+  return (
+    <Tab.Navigator 
+    screenOptions={{
+      tabBarStyle:{
+        height: 80,
+        backgroundColor: 'lightblue',
+      },
+      tabBarInactiveTintColor: 'black',
+      tabBarActiveTintColor: 'tomato',
+      tabBarLabelStyle:{
+fontSize: 20,
+fontWeight:'bold'
+      },
+   
+    }}
+    initialRouteName='Home'
+    >
+      <Tab.Screen
+       name="Home" 
+       component={Home}
+       options={{
+        tabBarIcon:(()=>(
+          <Icon name="home" size={30} color="#900" />
+        ))
+       }}
+       />
+       
+      <Tab.Screen
+       name="Profile"
+        component={Profile} 
+        options={{
+          tabBarIcon:(()=>(
+            <Icon name="profile" size={30} color="#900" />
+          ))
+         }}
+        />
+      <Tab.Screen 
+      name="About" 
+      component={About}
+      options={{
+        tabBarIcon:(()=>(
+          <Icon name="meho" size={30} color="#900" />
+        ))
+       }}
+      />
+    </Tab.Navigator>
+  );
+}
 const App = () => {
   return (
     <NavigationContainer>
-      <MyStack />
+      {/* <MyStack /> */}
+      <TabNavigator/>
     </NavigationContainer>
   );
 };
